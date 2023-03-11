@@ -1,4 +1,4 @@
-# HackerRank-problems---SQL
+# HackerRank-problems Solutions - SQL
 
 
 
