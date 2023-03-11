@@ -6,3 +6,9 @@ The CITY table is described as follows:
 
 ![image](https://user-images.githubusercontent.com/66794160/224451872-daced375-5086-4661-81ac-2363742cc92f.png)
 
+```
+select * from CITY where POPULATION > 100000 AND COUNTRYCODE = 'USA';
+```
+
+
+
