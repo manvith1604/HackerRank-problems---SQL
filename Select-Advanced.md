@@ -49,15 +49,11 @@ The results of the second query are ascendingly ordered first by number of names
 Solution : 
 
 ```sql
-CREATE VIEW PROFESSION AS (
-    SELECT 
-        CASE WHEN OCCUPATION = 'Doctor' THEN NAME END AS 'Doctor',
-        CASE WHEN OCCUPATION = 'Professor' THEN NAME END AS 'Professor',
-        CASE WHEN OCCUPATION = 'Singer' THEN NAME END AS 'Singer',
-        CASE WHEN OCCUPATION = 'Actor' THEN NAME END AS 'Actor',
-        ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) as CATEGORY
-    FROM OCCUPATIONS
-);
-SELECT MAX(Doctor),MAX(Professor),MAX(Singer),MAX(Actor) FROM PROFESSION 
-GROUP BY CATEGORY
+(SELECT CONCAT(NAME, '(', SUBSTRING(OCCUPATION, 1, 1), ')' ) AS NAMES
+FROM OCCUPATIONS) 
+UNION
+(SELECT CONCAT('There are a total of ', COUNT(OCCUPATION),' ', LOWER(OCCUPATION), 's.' ) 
+FROM OCCUPATIONS 
+GROUP BY OCCUPATION)
+ORDER BY NAMES ASC;
 ```
