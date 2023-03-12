@@ -49,5 +49,11 @@ The results of the second query are ascendingly ordered first by number of names
 Solution : 
 
 ```sql
-SELECT * FROM CITY WHERE POPULATION > 100000 AND COUNTRYCODE = 'USA';
+(SELECT CONCAT(NAME, '(', SUBSTRING(OCCUPATION, 1, 1), ')') AS NAMES
+FROM OCCUPATIONS) 
+UNION
+(SELECT CONCAT('There are a total of ', COUNT(OCCUPATION),' ', LOWER(OCCUPATION), 's.' ) 
+FROM OCCUPATIONS 
+GROUP BY OCCUPATION)
+ORDER BY NAMES ASC;
 ```
