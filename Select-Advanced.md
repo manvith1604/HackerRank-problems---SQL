@@ -108,4 +108,49 @@ CREATE VIEW PROFESSION AS (
 SELECT MAX(Doctor),MAX(Professor),MAX(Singer),MAX(Actor) FROM PROFESSION 
 GROUP BY CATEGORY
 ```
+## 3.Binary Tree Nodes
+
+You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+
+![image](https://user-images.githubusercontent.com/66794160/224525942-a5e52a1a-a70f-4b8e-a8bb-efbfa9115b0b.png)
+
+Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:
+
+Root: If node is root node.
+Leaf: If node is leaf node.
+Inner: If node is neither root nor leaf node.
+
+Sample Input
+
+![image](https://user-images.githubusercontent.com/66794160/224525964-1972dd13-7a9e-4f47-bdfe-8f80fc31cfab.png)
+
+Sample Output
+```
+1 Leaf
+2 Inner
+3 Leaf
+5 Root
+6 Leaf
+8 Inner
+9 Leaf
+```
+
+Explanation
+
+The Binary Tree below illustrates the sample:
+
+![image](https://user-images.githubusercontent.com/66794160/224525989-d50a0da9-4268-4568-bdd2-6afaf724e150.png)
+
+Solution :
+
+```sql
+SELECT N, 
+CASE WHEN P IS NULL THEN 'Root' 
+WHEN N NOT IN (SELECT DISTINCT P FROM BST WHERE P IS NOT NULL) 
+THEN 'Leaf' ELSE 'Inner' 
+END AS RESULT FROM BST 
+ORDER BY N;
+```
+
+## 4. New Companies
 
