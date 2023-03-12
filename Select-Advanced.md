@@ -185,3 +185,43 @@ ON E.MANAGER_CODE = M.MANAGER_CODE
 GROUP BY C.COMPANY_CODE, C.FOUNDER
 ORDER BY C.COMPANY_CODE;
 ```
+
+## 5. Type of Triangle
+
+Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+
+Equilateral: It's a triangle with  sides of equal length.
+Isosceles: It's a triangle with  sides of equal length.
+Scalene: It's a triangle with  sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
+Input Format
+
+The TRIANGLES table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/224529732-1bb2ec8d-0df0-4162-99d1-0143e29e0a03.png)
+
+Each row in the table denotes the lengths of each of a triangle's three sides.
+
+Sample Input
+
+![image](https://user-images.githubusercontent.com/66794160/224529739-52e2896d-7002-4bf8-a802-013b6ae48e5b.png)
+
+Sample Output
+```
+Isosceles
+Equilateral
+Scalene
+Not A Triangle
+```
+Solution :
+
+```sql
+SELECT 
+    CASE 
+        WHEN (A = B AND B = C) THEN "Equilateral"
+        WHEN (A + B <= C OR A + C <= B OR B + C <= A) THEN "Not A Triangle"
+        WHEN (A = B AND B <> C) OR (A = C AND C <> B) OR (B = C AND C <> A) THEN "Isosceles"
+        WHEN (A <> B AND B <> C) THEN "Scalene"
+    END AS TRIANGLE
+FROM TRIANGLES;
+```
