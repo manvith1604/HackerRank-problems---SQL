@@ -46,6 +46,7 @@ Explanation
 
 The results of the first query are formatted to the problem description's specifications.
 The results of the second query are ascendingly ordered first by number of names corresponding to each profession (2<=2<=3<=3), and then alphabetically by profession (doctor<=singer, and actor<=professor).
+
 Solution : 
 
 ```sql
@@ -57,3 +58,54 @@ FROM OCCUPATIONS
 GROUP BY OCCUPATION)
 ORDER BY NAMES ASC;
 ```
+
+## 2. Occupations
+
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+Note: Print NULL when there are no more names corresponding to an occupation.
+
+Input Format
+
+The OCCUPATIONS table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/224525356-965b481f-d8bc-4ce4-9922-83a531f9be78.png)
+
+Occupation will only contain one of the following values: Doctor, Professor, Singer or Actor.
+
+Sample Input
+
+![image](https://user-images.githubusercontent.com/66794160/224525360-07d9005e-3c9f-40b8-a2b7-300d307e97a2.png)
+
+Sample Output
+
+```
+Jenny    Ashley     Meera  Jane
+Samantha Christeen  Priya  Julia
+NULL     Ketty      NULL   Maria
+```
+
+Explanation
+
+The first column is an alphabetically ordered list of Doctor names.
+The second column is an alphabetically ordered list of Professor names.
+The third column is an alphabetically ordered list of Singer names.
+The fourth column is an alphabetically ordered list of Actor names.
+The empty cell data for columns with less than the maximum number of names per occupation (in this case, the Professor and Actor columns) are filled with NULL values.
+
+Solution : 
+
+```sql
+CREATE VIEW PROFESSION AS (
+    SELECT 
+        CASE WHEN OCCUPATION = 'Doctor' THEN NAME END AS 'Doctor',
+        CASE WHEN OCCUPATION = 'Professor' THEN NAME END AS 'Professor',
+        CASE WHEN OCCUPATION = 'Singer' THEN NAME END AS 'Singer',
+        CASE WHEN OCCUPATION = 'Actor' THEN NAME END AS 'Actor',
+        ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) as CATEGORY
+    FROM OCCUPATIONS
+);
+SELECT MAX(Doctor),MAX(Professor),MAX(Singer),MAX(Actor) FROM PROFESSION 
+GROUP BY CATEGORY
+```
+
