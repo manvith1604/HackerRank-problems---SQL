@@ -130,3 +130,33 @@ Solution :
 SELECT CEIL( AVG(MISCALC) -  AVG (WRONG) ) FROM 
 (SELECT CAST(SALARY AS CHAR) AS MISCALC, REPLACE(SALARY, '0', '') AS WRONG FROM EMPLOYEES) AS DIFF ; 
 ```
+
+## 8. Top Earners
+
+We define an employee's total earnings to be their monthly SALARY X MONTHS worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as 2 space-separated integers.
+
+Input Format
+
+The Employee table containing employee data for a company is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225412542-cad1715d-fe7c-4309-9be0-8a63d8544c98.png)
+
+where employee_id is an employee's ID number, name is their name, months is the total number of months they've been working for the company, and salary is the their monthly salary.
+
+Sample Input
+
+![image](https://user-images.githubusercontent.com/66794160/225412577-2597fa4d-552b-4209-a28d-0ba18132f497.png)
+
+Sample Output
+
+```
+69952 1
+```
+
+Solution :
+
+```sql
+SELECT MAX(MONTHS*SALARY), COUNT(*) FROM EMPLOYEE
+GROUP BY MONTHS*SALARY 
+ORDER BY MONTHS*SALARY DESC LIMIT 1;
+```
