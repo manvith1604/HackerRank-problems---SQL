@@ -191,7 +191,7 @@ SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2) FROM STATION;
 
 ## 10. Weather Observation Station 13
 
-Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than  and less than . Truncate your answer to  decimal places.
+Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345. Truncate your answer to 4 decimal places.
 
 Input Format
 
@@ -204,5 +204,126 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 Solution :
 
 ```sql
-SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2) FROM STATION;
+SELECT ROUND(SUM(LAT_N),4) FROM STATION
+WHERE LAT_N>38.7880 AND LAT_N<137.2345;
+```
+
+## 11. Weather Observation Station 14
+
+Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to 4 decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT ROUND(MAX(LAT_N),4) FROM STATION
+WHERE LAT_N<137.2345;
+```
+
+## 11. Weather Observation Station 15
+
+Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345 . Truncate your answer to 4 decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT ROUND(LONG_W,4) FROM STATION
+WHERE LAT_N = (SELECT MAX(LAT_N) FROM STATION WHERE LAT_N < 137.2345);
+```
+
+## 12. Weather Observation Station 16
+
+Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Truncate your answer to 4 decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT MIN(ROUND(LAT_N,4)) FROM STATION
+WHERE LAT_N > 38.7780;
+```
+
+## 13. Weather Observation Station 17
+
+Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780. Truncate your answer to 4 decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT ROUND(LONG_W,4) FROM STATION
+WHERE LAT_N = (SELECT MIN(LAT_N) FROM STATION WHERE LAT_N > 38.7780);
+```
+
+## 14. Weather Observation Station 18
+
+Consider P1(a,b) and P2(c,d) to be two points on a 2D plane.
+
+a happens to equal the minimum value in Northern Latitude (LAT_N in STATION).
+b happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+c happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+d happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT ROUND(ABS(MIN(LAT_N)-MAX(LAT_N)) + ABS(MIN(LONG_W)-MAX(LONG_W)), 4) FROM STATION;
+```
+
+## 15. Weather Observation Station 19
+
+Consider P1(a,c) and P2(b,d) to be two points on a 2D plane.where (a,b) are the respective minimum and maximum values of Northern Latitude (LAT_N) and (c,d) are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+
+Query the Euclidean Distance between points P1 and P2 and format your answer to display 4 decimal digits.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT ROUND( SQRT (POWER(MAX(LAT_N)-MIN(LAT_N), 2) + POWER(MAX(LONG_W)-MIN(LONG_W),2 )),4) FROM STATION;
 ```
