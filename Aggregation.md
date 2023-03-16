@@ -160,3 +160,49 @@ SELECT MAX(MONTHS*SALARY), COUNT(*) FROM EMPLOYEE
 GROUP BY MONTHS*SALARY 
 ORDER BY MONTHS*SALARY DESC LIMIT 1;
 ```
+
+## 9. Weather Observation Station 2
+
+Query the following two values from the STATION table:
+
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Output Format
+
+Your results must be in the form:
+
+```
+lat lon
+```
+
+Solution :
+
+```sql
+SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2) FROM STATION;
+```
+
+## 10. Weather Observation Station 13
+
+Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than  and less than . Truncate your answer to  decimal places.
+
+Input Format
+
+The STATION table is described as follows:
+
+![image](https://user-images.githubusercontent.com/66794160/225469670-89991813-0a92-44de-8573-d41d7f73afe7.png)
+
+where LAT_N is the northern latitude and LONG_W is the western longitude.
+
+Solution :
+
+```sql
+SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2) FROM STATION;
+```
