@@ -333,7 +333,7 @@ SELECT ROUND(S1.LAT_N, 4)
            FROM STATION AS S2 
            WHERE S2.LAT_N > S1.LAT_N);
 
-// This query is for MySQL only for Oracle you can use the median function directly as shown below
+// This query is for MySQL only, for Oracle you can use the median function directly as shown below
 
 SELECT ROUND(MEDIAN(LAT_N), 4)
 FROM STATION;
