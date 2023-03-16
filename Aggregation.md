@@ -325,5 +325,12 @@ where LAT_N is the northern latitude and LONG_W is the western longitude.
 Solution :
 
 ```sql
-SELECT ROUND( SQRT (POWER(MAX(LAT_N)-MIN(LAT_N), 2) + POWER(MAX(LONG_W)-MIN(LONG_W),2 )),4) FROM STATION;
+SELECT ROUND(S1.LAT_N, 4) 
+    FROM STATION AS S1 
+    WHERE (SELECT ROUND(COUNT(S1.ID)/2) - 1 
+           FROM STATION) = 
+          (SELECT COUNT(S2.ID) 
+           FROM STATION AS S2 
+           WHERE S2.LAT_N > S1.LAT_N);
 ```
+
