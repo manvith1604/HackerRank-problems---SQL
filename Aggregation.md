@@ -8,7 +8,7 @@ The CITY table is described as follows:
 
 ![image](https://user-images.githubusercontent.com/66794160/224531223-f39e27dd-5ad3-4d13-a0a8-9e3158833fe1.png)
 
-Solution :
+Solution:
 
 ```sql
 SELECT COUNT(ID) FROM CITY
