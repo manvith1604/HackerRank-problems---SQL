@@ -50,7 +50,7 @@ Solution :
 SELECT * FROM CITY WHERE ID = 1661; 
 ```
 
-## 5. Japanese Cities' Attributes
+## 5. Japanese Cities' Attributes 
 
 Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
 
