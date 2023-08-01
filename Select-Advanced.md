@@ -213,7 +213,7 @@ Equilateral
 Scalene
 Not A Triangle
 ```
-Solution :
+Solution : 
 
 ```sql
 SELECT 
