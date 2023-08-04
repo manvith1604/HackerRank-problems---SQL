@@ -4,7 +4,7 @@ Given the CITY and COUNTRY tables, query the sum of the populations of all citie
 
 Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
 
-Input Format
+Input Format 
 
 The CITY and COUNTRY tables are described as follows:
 
