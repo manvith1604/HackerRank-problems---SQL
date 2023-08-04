@@ -94,7 +94,7 @@ NULL 7 68
 Note
 
 Print "NULL"  as the name if the grade is less than 8.
-
+ 
 Explanation
 
 Consider the following table with the grades assigned to the students:
