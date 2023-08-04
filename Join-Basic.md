@@ -19,7 +19,7 @@ SELECT SUM(CI.POPULATION) FROM CITY CI, COUNTRY CO
 WHERE CI.COUNTRYCODE = CO.CODE AND CO.CONTINENT = 'Asia';
 ```
 
-## 2. African Cities
+## 2. African Cities 
 
 Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
 
