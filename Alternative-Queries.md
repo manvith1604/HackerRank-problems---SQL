@@ -82,8 +82,7 @@ FROM Numbers
 WHERE NOT EXISTS (
   SELECT 1
   FROM Numbers AS N
-  WHERE N.Number > 1 AND N.Number < Numbers.Number AND Numbers.Number % N.Number = 0
-);
+  WHERE N.Number > 1 AND N.Number < Numbers.Number AND Numbers.Number % N.Number = 0);
 ```
 
 
