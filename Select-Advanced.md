@@ -24,7 +24,7 @@ An OCCUPATIONS table that contains the following records:
 
 ![image](https://user-images.githubusercontent.com/66794160/224460904-82ee6cdf-afc9-4852-a228-067587f36911.png)
 
-Sample Output
+Sample Output 
 
 ```
 Ashely(P)
