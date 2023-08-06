@@ -12,7 +12,7 @@ The CITY and COUNTRY tables are described as follows:
 
 ![image](https://github.com/manvith1604/HackerRank-problems---SQL/assets/66794160/b410cc7a-cd43-4104-9196-483e10bb5ea1)
 
-Solution: 
+Solution:
 
 ```sql
 SELECT SUM(CI.POPULATION) FROM CITY CI, COUNTRY CO
