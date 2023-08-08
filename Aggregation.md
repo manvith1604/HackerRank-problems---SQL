@@ -14,7 +14,7 @@ Solution:
 SELECT COUNT(ID) FROM CITY
 WHERE POPULATION > 100000;
 ```
-
+ 
 ## 2. Revising Aggregations - The Sum Function
 
 Query the total population of all cities in CITY where District is California.
