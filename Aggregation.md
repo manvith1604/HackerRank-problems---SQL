@@ -25,7 +25,7 @@ The CITY table is described as follows:
 
 ![image](https://user-images.githubusercontent.com/66794160/224604792-579a2301-df4b-4445-88ea-6d6622c0e5af.png)
 
-Solution :
+Solution : 
 
 ```sql
 SELECT SUM(POPULATION) FROM CITY
