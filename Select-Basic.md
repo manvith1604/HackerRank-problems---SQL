@@ -12,7 +12,7 @@ Solution :
 SELECT * FROM CITY WHERE POPULATION > 100000 AND COUNTRYCODE = 'USA';
 ```
 
-## 2. Revising the Select Query II
+## 2. Revising the Select Query II 
 
 Query the NAME field for all American cities in the CITY table with populations larger than 120000. The CountryCode for America is USA.
 
