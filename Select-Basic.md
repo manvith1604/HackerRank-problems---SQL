@@ -30,7 +30,7 @@ SELECT NAME FROM CITY WHERE COUNTRYCODE = 'USA' AND POPULATION > 120000;
 
 Query all columns (attributes) for every row in the CITY table.
 
-The CITY table is described as follows:
+The CITY table is described as follows: 
 
 ![image](https://user-images.githubusercontent.com/66794160/224454328-58556077-5a15-4958-9e98-cb202d890323.png)
 
