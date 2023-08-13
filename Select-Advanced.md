@@ -12,7 +12,7 @@ where [occupation_count] is the number of occurrences of an occupation in OCCUPA
 
 Note: There will be at least two entries in the table for each type of occupation.
 
-Input Format 
+Input Format
 
 ![image](https://user-images.githubusercontent.com/66794160/224460880-b8e95bf8-83ca-46f2-ad5e-41d4272dcbb2.png)
 
