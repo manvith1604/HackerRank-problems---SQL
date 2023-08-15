@@ -80,7 +80,7 @@ Sample Input
 
 ![image](https://github.com/manvith1604/HackerRank-problems---SQL/assets/66794160/50add442-4da2-4567-ad4c-8f85de8617bd)
 
-Sample Output
+Sample Output 
 
 ```
 Maria 10 99
